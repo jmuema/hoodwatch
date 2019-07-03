@@ -36,6 +36,12 @@ def hood_details(request):
   else:
     hoodform = NeighbourhoodForm()
   return render(request, 'enter_hood.html',{'hoodform':hoodform})
-  
+
+# @login_required
+def home(request,id):
+  user = request.user
+  hood = Neighbourhood.objects.get(id=id)
+  biz = Business.objects.filter(bizhood=hood.id)
+  return render(request,'home.html',{'hood':hood,'biz':biz,'user':user})
 
     
