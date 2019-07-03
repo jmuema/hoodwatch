@@ -16,4 +16,17 @@ class Neighbourhood(models.Model):
   def save_neighbourhood(self):
     self.save()
 
+class Profile(models.Model):
+    me = models.OneToOneField(User,on_delete=models.CASCADE)
+    myhood = models.ForeignKey(Neighbourhood)
+    profile_image = models.ImageField(default='default.jpeg')
 
+    def __str__(self):
+      return f"{self.me.username}'s Profile"
+
+    def save_profile(self):
+      self.save()
+
+
+
+  
