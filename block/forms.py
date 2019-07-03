@@ -10,3 +10,8 @@ class UserRegistrationFOrm(UserCreationForm):
     models = User
     fields = ['username','email','password1','password2']
 
+class NeighbourhoodForm(forms.ModelForm):
+  class Meta:
+    models = Neighbourhood
+    exclude = ['admin','occupants']
+
