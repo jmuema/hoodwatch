@@ -27,6 +27,22 @@ class Profile(models.Model):
     def save_profile(self):
       self.save()
 
+class Business(models.Model):
+  person = models.ForeignKey(User)
+  bizname = models.CharField(max_length =50)
+  bizpost = models.CharField(max_length =500, blank=True, null=True)
+  email = models.CharField(max_length = 50)
+  bizhood = models.ForeignKey(Neighbourhood)
 
+  def save_business(self):
+    self.save()
+
+  def __str__(self):
+    return f"{self.person.username}'s Post"
+
+  @classmethod
+  def search_by_bizname(cls.bizname):
+    searched = cls.obects.filter(bizname_icontains=bizname)
+    return searched
 
   
