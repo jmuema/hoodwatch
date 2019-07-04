@@ -68,7 +68,7 @@ class Business(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(Profile, related_name='profile')
-    post = models.CharField(max_length=30)
+    post = models.CharField(max_length=500)
     neighbourhood = models.ForeignKey(Neighbourhood, related_name='posts')
 
 class Location(models.Model):
