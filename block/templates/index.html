@@ -1,16 +1,17 @@
 {%extends 'base.html'%}
 
 {% block content %}
-  {{block.super}}
-  <div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+{{block.super}}
 
+<div style="text-align:center; padding-top: 130px; padding-bottom: 130px; " class="container-fluid" id="moda">
+  <div class="jumbotron">
     <div class="content text-center">
       <h1 data-hover="The Nairobian">
         Welcome To HoodWatch</h1>
     </div>
-    <h6 style="text-align:center; color:rgb(253, 253, 253);">{{date|date:"l d  F  Y"}}</h6>
+    <h6 style="text-align:center; color:rgb(10, 10, 10);">{{date|date:"l d  F  Y"}}</h6>
 
-  </div>
+  
   <div class="container">
     <hr>
     <a href="{% url 'new-hood'%}">
@@ -19,28 +20,30 @@
     <hr>
     <div class="row">
       {% for hood in hoods%}
-        <div class="col-md-4 col-lg-4 col-sm-6 ">
-          <div class="card">
-            <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
-              <h5>{{ hood.name}}</h5>
-            </div>
-            <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
-
-              <img class="img-responsive" src="{{hood.image.url}}" alt="" height="200px" width="300px">
-
-            </div>
-            <div style="background-color:rgb(10, 10, 10);" class="card-footer">
-              <a href="/hoods/{{ hood.id}}">
-                <button class="btn btn-outline-primary btn-sm">Join Hood &#8594;</button>
-              </a>
-            </div>
+      <div class="col-md-4 col-lg-4 col-sm-6 ">
+        <div class="card">
+          <div style="text-align:center; color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+            <h5>{{ hood.name}}</h5>
           </div>
-          <br>
-          <br>
-        </div>
+          <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image">
 
-        {% endfor%}
+            <img class="img-responsive" src="{{hood.image.url}}" alt="" height="200px" width="300px">
+
+          </div>
+          <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+            <a href="/hoods/{{ hood.id}}">
+              <button class="btn btn-outline-primary btn-sm">Join Hood &#8594;</button>
+            </a>
+          </div>
+        </div>
+        <br>
+        <br>
       </div>
     </div>
 
-  {% endblock %}
+    {% endfor%}
+  </div>
+</div>
+
+
+{% endblock %}
