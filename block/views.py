@@ -154,4 +154,21 @@ def newcoment(request,id):
     else:
       form =NewCommentForm()
   return render(request,'newcomment.html',{'brush':brush,'comments':comments,'form:form'})
+
+def post_business(request,id):
+  date = dt.date.today()
+  hood = Neighbourhood.objects.get(id=id)
+  business = Business.objects.filter(neighbourhood=hood)
+  form = BusinessForm()
+  if request.method == 'POST':
+    FORM = BusinessForm(request.POST,request.FILES)
+    if form.is_valid():
+      business = form.save(commit=False)
+      business.profile = request.user.profile
+      business.neighbourhood = hood
+      business.save()
+      return redirect('index')
+    else:
+      form = BusinessForm()
+  return render(request,'new_business.html',{"form":form,"business":business,"hood":hood,"date":date})
   
