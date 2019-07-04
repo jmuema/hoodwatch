@@ -116,3 +116,23 @@ def hoods(request,id):
   business = Business.objects.filter(neighbourhood=post)
   return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs,"business":business})
 
+def post_new(request,id):
+  date = dt.date.today()
+  hood = Neighbourhood.objects.filter(neighbourhood=post)
+  post = post.objects.filter(neighbourhood=post)
+  comments = comments.objects.filter(post=id).order_by('-pub_date')
+
+  form = PostForm()
+  if request.method == 'POST':
+    form = PostForm(request.POST, request.FILES)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.user = request.user.profile
+      post.profile = profile
+      post.neighbourhood = hood
+      post.save()
+      return redirect('index')
+  else:
+    form = PostForm()
+    return render(request,'new_post.html',{"form":form,"posts":posts,"hood":hood,"date":date, 'comments':comments})
+    
