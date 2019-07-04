@@ -18,14 +18,24 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 
-def signup(request):
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignupForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#     else:
+#         form = SignupForm()
+#     return render(request, 'registration_form.html', {'form': form})
+def register(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
+            form.save()
+            username = form.cleaned_data.get('username')
+            return redirect('login')
     else:
-        form = SignupForm()
-    return render(request, 'signup.html', {'form': form})
+        form = UserRegisterForm()
+    return render(request, 'registration_form.html', {'form': form})
 
 
 def activate(request, uidb64, token):

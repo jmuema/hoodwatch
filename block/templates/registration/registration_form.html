@@ -1,46 +1,43 @@
-{%extends 'base.html'%}
+{% extends 'users/ubase.html' %}
 {% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-  <div class="container">
-    <div class="row">
-      <div class="col s4 push-s4">
-        <span class="flow-text"></span>
-      </div>
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
 
-      <div class="col s4 pull-s4">
-        <div class="card">
-          <div style="text-align:center;" class="card-header">
-            <h5>Sign up
-            </h5>
-          </div>
+<div class="container">
+    <div class=row>
+            <div class="col-md-4">
+                    <img src='/media/tuzo.png' class="tuzo" width="350" 
+       height="190" 
+       alt="Picture">
+       <br>
+       <br>
+       <br>
+       <br>
+                    <div class="vl">
+                        <p class="imgtxt"> Awarding Kenyan websites </p>
+                    </div>
+                </div>
 
-          <div class="card-body">
-            <form method="post">
-              {% csrf_token %}
-              {% for field in form %}
-                <p>
-                  {{ field.label_tag }}<br>
-                  {{ field }}
-                  {% if field.help_text %}
-                    <small style="display: none">{{ field.help_text }}</small>
-                  {% endif %}
-                  {% for error in field.errors %}
-                    <p style="color: red">{{ error }}</p>
-                  {% endfor %}
-                </p>
-              {% endfor %}
-              <button class="waves-effect waves-light btn btn-sm" type="submit">Sign up</button>
-            </form>
-          </div>
-
+        <div class="col-md-6">
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group form">
+                        <legend class="border-bottom mb-4"><p class="smalltxt"><b>Sign up and check out Kenya's star portfolio websites</b></p></legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group form">
+                        <button class="btn btn-outline-success" type="submit">Sign Up</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3 below">
+                    <small class="text-muted">Have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a> </small>
+                </div>
+            </div>
         </div>
-
-      </div>
-
-      <div class="col s4 pull-s4">
-        <span class="flow-text"></span>
-      </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}
