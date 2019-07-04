@@ -106,3 +106,13 @@ def maps(request):
     return render(request, 'maps.html',{"date":date})
 
 
+@login_required(login_url='/accounts/login/')
+def hoods(request,id):
+  current_user=request.user
+  date = dt.date.today()
+  post=Neighbourhood.objects.get(id=id)
+
+  brushs = post.objects.filter(Neighbourhood=post)
+  business = Business.objects.filter(neighbourhood=post)
+  return render(request,'each_hood.html',{"post":post,"date":date,"brushs":brushs,"business":business})
+
