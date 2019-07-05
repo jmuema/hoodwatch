@@ -29,3 +29,30 @@ class UserTest(TestCase):
         user.delete()
         users = User.objects.all()
         self.assertTrue(len(users)==0)
+
+class NeighbourhoodTestClass(TestCase):
+  """
+  Tests Neighborhood class and its functions
+  """
+  def setUp(self):
+      self.hood = Neighbourhood(name='test',description='test')
+  
+  def test_instance(self):
+      self.assertTrue(isinstance(self.hood, Neighbourhood))
+
+  def test_save_method(self):
+      """
+      Function to test that a neighborhood is being saved
+      """
+      self.hood.save_neighbourhood()
+      hoods = Neighbourhood.objects.all()
+      self.assertTrue(len(hoods) > 0)
+
+  def test_delete_method(self):
+      """
+      Function to test that a neighborhood can be deleted
+      """
+      self.hood.save_neighbourhood()
+      self.hood.delete_neighbourhood()
+      hoods = Neighbourhood.objects.all()
+      self.assertTrue(len(hoods) == 0)
