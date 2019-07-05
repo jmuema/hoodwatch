@@ -7,5 +7,95 @@ body{
 }
 
 .jumbotron {
-  opacity: 0.9; 
+  opacity: 0.8; 
 }
+
+*{
+  font-family: 'Mali', cursive;
+
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #fefefe;
+  text-shadow: 0px 0px 1px #b0ffb4, 0px 0px 1px #b5fdb9, 0px 0px 1px #bdffc1,
+    0px 0px 1px #c9ffbd, 0px 0px 1px #d6ffbd;
+}
+h1:hover {
+  font-size: 0;
+}
+h1:hover:before {
+  content: attr(data-hover);
+  font-size: 40px;
+  text-transform: uppercase;
+  color: #adfed1;
+  text-shadow: 0px 0px 1px #fbaed2, 0px 0px 1px #ffb7d5, 0px 0px 1px #ffa6c9,
+    0px 0px 1px #46f7c2, 0px 0px 1px #0be3c6;
+}
+
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px rgb(253, 244, 244);
+	padding: 9px 10px 9px 32px;
+	width: 100px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 200px;
+	background-color: #fff;
+	border-color: rgb(99, 238, 120);
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
+
+#moda{
+  /* background: url('/static/pics/image (1).jpg') no-repeat center center fixed;  */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#quotes{
+  /* background: url('/static/pics/M3_exterior_D.jpg') no-repeat center center fixed;  */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+

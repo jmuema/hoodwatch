@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card">
-          <div style="color:antiquewhite; background-color:rgb(10, 10, 10);" class="card-header">
+          <div style="color:white; background-color:rgb(10, 10, 10);" class="card-header">
             <p>{{brush.post}}</p>
           </div>
 
@@ -47,7 +47,7 @@
         <p>No comments have been made</p>
       {% endif %}
       <div style="text-align:center; background-color:rgb(10, 10, 10);" class="card-image"></div>
-      <div style="background-color:rgb(10, 10, 10);" class="card-footer">
+      <div style="background-color:rgb(255, 255, 255);" class="card-footer">
         <form action="/hoods/new/comment/{{brush.id}}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
 

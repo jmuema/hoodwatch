@@ -154,7 +154,7 @@ def newcomment(request,id):
     else:
         form = NewCommentForm()
 
-    return render(request, 'newcomment.html',{'brush':brush,"comments":comments,"form":form})
+    return render(request, 'newcomments.html',{'brush':brush,"comments":comments,"form":form})
 
 
 def post_business(request,id):
