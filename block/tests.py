@@ -56,3 +56,14 @@ class NeighbourhoodTestClass(TestCase):
       self.hood.delete_neighbourhood()
       hoods = Neighbourhood.objects.all()
       self.assertTrue(len(hoods) == 0)
+
+class BusinessTestClass(TestCase):
+  """
+  Tests Business Class and its functions
+  """
+  def setUp(self):
+      self.hood = Neighbourhood(name='test',description='test')
+      self.biz = Business(name='test',category='test')
+
+  def test_instance(self):
+      self.assertTrue(isinstance(self.biz, Business))
