@@ -14,6 +14,6 @@ whitenoise==4.1.2
 confusable-homoglyphs==3.2.0
 django-location-field==2.0.3
 django-material==0.5.1
-django-registration==2.4.1
+django-registration==3.1.2
 six==1.11.0
 
