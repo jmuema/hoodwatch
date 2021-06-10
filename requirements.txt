@@ -1,4 +1,4 @@
-Django==1.11
+Django==2.2.24
 pytz==2019.1
 config==0.3.9
 dj-database-url==0.5.0
